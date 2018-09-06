@@ -1,10 +1,17 @@
+/*
+*= require sweetalert2
+*= require_tree .
+*= require_self
+*/
 @import "font-awesome-sprockets";
-@import "font-awesome";
 @import 'bootstrap';
 @import 'home';
 @import 'users';
+@import 'businesses';
+@import 'font-awesome';
 
 
 body {
   font-family: "apercu",sans-serif;
 }
+

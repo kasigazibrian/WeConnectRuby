@@ -1,5 +1,10 @@
 <div class="jumbotron">
-  <h1 class="display-4">Welcome !!</h1>
+  <%= render 'layouts/messages'  %>
+  <% if user_signed_in? %>
+  <h1 class="display-4">Welcome <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize  %> !!</h1>
+    <% else %>
+    <h1 class="display-4">Welcome !!</h1>
+    <% end %>
   <p class="lead-paragraph">This is a simple business advertising company. You can register your
     business with us by simply creating an <%= link_to "account", new_user_registration_path %></p>
   <hr class="my-4">

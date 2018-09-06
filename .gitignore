@@ -34,4 +34,11 @@
 .idea
 
 # Ignore mac_os files
+.DS_Store/public/packs
+/public/packs-test
+/node_modules
+yarn-debug.log*
+.yarn-integrity
+
+
 .DS_Store

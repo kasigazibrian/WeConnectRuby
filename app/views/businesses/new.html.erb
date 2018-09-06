@@ -1,0 +1,17 @@
+<%= form_for( :business, url: new_business_path ) do |f| %>
+  <% if @business.errors.any? %>
+    <% @business.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger"><%= msg %></div>
+    <% end %>
+  <% end %>
+  <p>
+    <%= f.label :business_name %><br>
+    <%= f.text_field :business_name, :class => "form-control" %>
+  </p>
+  <p>
+    <%= f.label :business_email %><br>
+    <%= f.email_field :business_email , {class: "form-control"} %>
+  <p>
+    <%= f.submit({:class => "btn btn-primary"})  %>
+  </p>
+<% end %>
