@@ -18,6 +18,7 @@
 //= require activestorage
 //= require turbolinks
 //= require popper
+//= require toastr.min
 //= require_tree .
 
 

@@ -1,60 +1,60 @@
-<div class="d-flex justify-content-center">
-  <div class="sign-up-wrapping">
-    <div class="col-md-10">
-    <div class="container text-light">
-      <h2 class="sign-up-heading"> Please Sign up</h2>
+<div class="signup-background">
+  <div class="d-flex justify-content-center">
+    <div class="sign-up-wrapping">
+      <div class="col-md-10">
+      <div class="container text-light">
+        <h2 class="sign-up-heading"> Please Sign up</h2>
+        <%= render 'layouts/messages'  %>
+        <%= flash_toastr %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :username %><br />
+            <%= f.text_field :username, autocomplete: "off", class: "form-control form-input-border", required: true %>
+          </div><br />
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%#= devise_error_messages! %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autocomplete: "email", class: "form-control form-input-border"  %>
+          </div><br />
 
-        <div class="field">
-          <%= f.label :username %><br />
-          <%= f.text_field :username, autocomplete: "off", class: "form-control form-input-border", required: true %>
-        </div><br />
+          <div class="field">
+            <%= f.label :first_name %><br />
+            <%= f.text_field :first_name,  autocomplete: "off", class: "form-control form-input-border"  %>
+          </div><br />
 
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autocomplete: "email", class: "form-control form-input-border"  %>
-        </div><br />
+          <div class="field">
+            <%= f.label :last_name %><br />
+            <%= f.text_field :last_name,  autocomplete: "off", class: "form-control form-input-border"  %>
+          </div><br />
 
-        <div class="field">
-          <%= f.label :first_name %><br />
-          <%= f.text_field :first_name,  autocomplete: "off", class: "form-control form-input-border"  %>
-        </div><br />
+          <div class="field">
+            <%= f.label :gender %><br />
+            <%= f.radio_button :gender, "male"  %>
+            <%= f.label :gender, "Male", :value => "male" %><br />
+            <%= f.radio_button :gender, "female" %>
+            <%= f.label :gender, "Female", :value => "Female" %>
+          </div><br />
 
-        <div class="field">
-          <%= f.label :last_name %><br />
-          <%= f.text_field :last_name,  autocomplete: "off", class: "form-control form-input-border"  %>
-        </div><br />
+          <div class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "off", class: "form-control form-input-border"  %>
+          </div><br />
 
-        <div class="field">
-          <%= f.label :gender %><br />
-          <%= f.radio_button :gender, "male"  %>
-          <%= f.label :gender, "Male", :value => "male" %><br />
-          <%= f.radio_button :gender, "female" %>
-          <%= f.label :gender, "Female", :value => "Female" %>
-        </div><br />
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control form-input-border"  %>
+          </div><br/>
 
-        <div class="field">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "off", class: "form-control form-input-border"  %>
-        </div><br />
-
-        <div class="field">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control form-input-border"  %>
-        </div><br/>
-
-        <div class="actions">
-          <%= f.submit "Sign up", class: "btn btn-info form-input-border" %>
-        </div><br />
-    <% end %>
-
-    <%= render "users/shared/links" %>
-    </div>
+          <div class="actions">
+            <%= f.submit "Sign up", class: "btn btn-info form-input-border" %>
+          </div><br />
+      <% end %>
+      <%= render "users/shared/links" %>
+      </div>
+      </div>
     </div>
   </div>
 </div>

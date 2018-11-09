@@ -1,5 +1,9 @@
 class Business < ApplicationRecord
   belongs_to :user
   has_many :reviews
-  validates :business_email, presence: true, format: Devise.email_regexp
+  belongs_to :category
+  validates :business_name, presence: { message: 'is a required field' }
+  validates :business_email, presence: { message: 'is a required field' }, format: Devise.email_regexp
+  validates_format_of :contact_number,
+                      with: /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/
 end

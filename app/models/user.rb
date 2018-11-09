@@ -7,4 +7,9 @@ class User < ApplicationRecord
          authentication_keys: [:username]
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   validates :gender, inclusion: %w[male female]
+
+  def to_param
+    id.to_s(36)
+  end
+
 end

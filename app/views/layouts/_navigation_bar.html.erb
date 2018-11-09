@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-       <a class="nav-link" href="#"><i class="fas fa-business-time"></i> Businesses</a>
+       <a class="nav-link" href="/businesses"><i class="fas fa-business-time"></i> Businesses</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"><i class="fas fa-search"></i> Search</a>
@@ -20,11 +20,13 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <% if user_signed_in? %>
 <!--          <a class="dropdown-item" href="/users/sign_out"> Logout</a>-->
-            <div class="dropdown-item"><i class="fas fa-sign-out-alt"></i>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <div class="dropdown-item logout"><i class="fas fa-sign-out-alt"></i>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "logout"%>
             </div>
           <a class="dropdown-item" href="#"><i class="fas fa-user-md"></i> User Profile</a>
-            <a class="dropdown-item" href="#"><i class="fas fa-business-time"></i> Register Business</a>
+            <div class="dropdown-item logout"><i class="fas fa-business-time"></i>
+              <%= link_to "Register Business", new_business_path, class: "logout"%>
+            </div>
             <% else %>
             <a class="dropdown-item" href="/users/sign_in"><i class="fas fa-sign-in-alt"></i> Login</a>
             <a class="dropdown-item" href="/users/sign_up"><i class="fas fa-user-plus"></i> Sign up</a>

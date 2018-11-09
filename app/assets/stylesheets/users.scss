@@ -48,6 +48,12 @@
   background-image: url("login-background-image.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
-  height: auto;
-  padding-bottom: 14.5rem;
+  height: 100vh;
+}
+
+.signup-background{
+  background-image: url("ballpen.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
 }

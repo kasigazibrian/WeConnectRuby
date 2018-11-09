@@ -9,35 +9,6 @@ module DeviseHelper
   # it to add more behavior or options.
   def devise_error_messages!
     return "" if resource.errors.empty?
-
-    messages = resource.errors.full_messages.map { |msg| content_tag(:li, msg) }.join
-    sentence = I18n.t("errors.messages.not_saved",
-                      count: resource.errors.count,
-                      resource: resource.class.model_name.human.downcase)
-
-    html = <<-HTML
-     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-      <button type="button" class="close" data-dismiss="alert">
-        <span aria-hidden="true">&times;</span>
-        </button>
-        <h2>#{sentence}</h2>
-        <ul>#{messages}</ul>
-    </div>
-    HTML
-
-    html.html_safe
-  end
-
-  def get_flash_key(key)
-    case key
-    when 'alert'
-      'warning'
-    when 'notice'
-      'success'
-    when 'error'
-      'danger'
-    else
-      'primary'
-    end
+    flash[:error] = resource.errors.full_messages.first
   end
 end

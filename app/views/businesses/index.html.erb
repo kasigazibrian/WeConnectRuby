@@ -1,3 +1,9 @@
+<div class="businesses-background">
 <div class="container">
-  <%= render 'business_cards' %>
+  <%= render 'layouts/messages' %>
+  <%= flash_toastr %>
+  <div class="row">
+      <%= render 'business_cards' %>
+  </div>
+</div>
 </div>

@@ -1,6 +1,16 @@
+<% devise_error_messages! %>
 <% flash.each do |key, value| %>
-  <div class="alert alert-<%= get_flash_key(key) %>">
-    <a href="#" data-dismiss="alert" class="close">×</a>
+  <% if value.respond_to?('each')%>
+    <% value.each do |message| %>
+      <div class="alert alert-<%= get_flash_key(key) %>">
+        <a href="#" data-dismiss="alert" class="close">×</a>
+        <%= message %>
+      </div>
+    <% end %>
+    <% else %>
+      <div class="alert alert-<%= get_flash_key(key) %>">
+      <a href="#" data-dismiss="alert" class="close">×</a>
       <%= value %>
   </div>
+    <% end %>
 <% end %>
