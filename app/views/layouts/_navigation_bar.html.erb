@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <%= image_tag('logo.png', size: '45x42') %>
   <%= link_to "WeConnect!", root_path, class: "navbar-brand"  %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -10,7 +11,7 @@
        <a class="nav-link" href="/businesses"><i class="fas fa-business-time"></i> Businesses</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fas fa-search"></i> Search</a>
+        <i class="fas fa-search"></i><%= link_to "Search", business_search_path, class: 'nav-link search' %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

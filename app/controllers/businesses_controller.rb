@@ -11,6 +11,18 @@ class BusinessesController < ApplicationController
     @business = Business.new
   end
 
+  def search
+    render 'businesses/search'
+  end
+
+  def search_results
+    business_name = params[:q]
+    if business_name
+      render json: Business.where("business_name ILIKE ?", "%#{business_name}%").as_json
+    end
+
+  end
+
   def show
     business = Business.find(params[:id])
     flash[:error] = 'Business not found' unless business

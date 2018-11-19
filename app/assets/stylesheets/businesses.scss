@@ -6,6 +6,13 @@ i {
   color: #666666;
 }
 
+.search-bar {
+  position: absolute;
+  top: 30%;
+  margin-top: -50px;
+  width: 100%;
+}
+
 .business-container{
   background-color: #666666;
   padding-bottom: 80px;
@@ -27,6 +34,20 @@ i {
 .business-inputs {
   border-radius: 15px;
 }
+.business-name-input {
+  margin: 8px 60px 0 0;
+  width: 89%;
+  height: 75%;
+  border-radius: 5px;
+}
+
+.business-search-label{
+  font-size: 20px;
+  color: white !important;
+  margin-top: 12px;
+  width: 80px;
+  margin-right: 5px;
+}
 
 .businesses-background{
   background-image: url("android.jpg");
@@ -35,3 +56,14 @@ i {
   background-position: center;
   height: 100vh;
 }
+
+.we-connect-logo {
+  background-image: url("BIGLOGO.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 18%;
+}
+.category-input{
+  margin-top: 8px;
+}
+

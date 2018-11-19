@@ -1,4 +1,8 @@
+require 'elasticsearch/model'
+
 class Business < ApplicationRecord
+  include Elasticsearch::Model
+  # include Elasticsearch::Model::Callbacks
   belongs_to :user
   has_many :reviews
   belongs_to :category

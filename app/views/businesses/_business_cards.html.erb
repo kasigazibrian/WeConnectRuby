@@ -1,4 +1,4 @@
-<% if @businesses.respond_to?('each') %>
+<% unless @businesses.length == 0 %>
   <% @businesses.each do |business| %>
     <div class="col-md-3">
       <div class="business-card">
@@ -22,5 +22,12 @@
     </div>
   <% end %>
   <% else %>
-  <h1> No businesses registered yet</h1>
+  <div style="margin: 5rem auto">
+    <div class="card text-white bg-dark mb-3">
+      <div class="card-header">Ooops :)</div>
+      <div class="card-body">
+        <p class="card-text">No businesses registered yet</p>
+      </div>
+    </div>
+  </div>
 <% end %>

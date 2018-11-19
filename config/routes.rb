@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  get 'business/search', to: 'businesses#search'
+  get 'business/search_results', to: 'businesses#search_results'
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 end
