@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-center">
+  <div class="col-md-8">
+    <h3 class="business-heading">Business Registration Form</h3>
+    <%= render 'layouts/messages' %>
+    <%= flash_toastr %>
+    <%= form_for( :business, url: businesses_path ) do |f| %>
+      <div class="form-group">
+        <%= f.label :business_name, "Business Name" %><br>
+        <%= f.text_field :business_name, :class => "form-control business-inputs" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :business_email, "Business Email" %><br>
+        <%= f.email_field :business_email , {class: "form-control business-inputs"} %>
+      </div>
+      <div class="form-group">
+        <%= f.label :business_location, "Business Location" %><br>
+        <%= f.text_field :business_location , {class: "form-control business-inputs"} %>
+      </div>
+      <div class="form-group">
+        <%= f.label :category_id, "Business Category" %><br>
+        <% categories_array = Category.all.map { |category| [category.name, category.id] } %>
+        <%= f.select :category_id, options_for_select(categories_array),{}, {class: "form-control business-inputs"} %>
+      </div>
+      <div class="form-group">
+        <%= f.label :contact_number, "Contact Number"%><br>
+        <%= f.text_field :contact_number , {class: "form-control business-inputs"} %>
+      </div>
+      <div class="form-group">
+        <%= f.label :business_description, "Business Description" %><br>
+        <%= f.text_area :business_description , {class: "form-control business-inputs"} %>
+      </div>
+      <div class="form-group">
+        <%= f.submit({:class => "form-control business-inputs btn btn-info"})  %>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>

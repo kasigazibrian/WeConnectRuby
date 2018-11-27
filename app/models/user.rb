@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :businesses
   # Include default devise modules. Others available are:
@@ -11,5 +13,4 @@ class User < ApplicationRecord
   def to_param
     id.to_s(36)
   end
-
 end

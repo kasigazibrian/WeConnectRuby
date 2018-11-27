@@ -33,6 +33,7 @@ i {
 
 .business-inputs {
   border-radius: 15px;
+  margin-top: 10px;
 }
 .business-name-input {
   margin: 8px 60px 0 0;
@@ -47,6 +48,10 @@ i {
   margin-top: 12px;
   width: 80px;
   margin-right: 5px;
+}
+
+.card-min-height{
+  min-height: 100%;
 }
 
 .businesses-background{
@@ -67,3 +72,35 @@ i {
   margin-top: 8px;
 }
 
+.location-input {
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+.search-results{
+  background: #6E6E6E;
+  border: 1px solid #ababab;
+  border-top: none;
+}
+
+.business-link{
+  display: block;
+  text-decoration: none !important;
+  color: white;
+  font-size: 20px;
+
+}
+.business-link:hover{
+  color: #DADADA;
+
+}
+
+.review-btn{
+  margin-top: 10px;
+}
+.profile-heading{
+  font-size: 40px;
+}
+.business-card-text{
+  height: 3rem;
+}

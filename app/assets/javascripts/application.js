@@ -19,6 +19,8 @@
 //= require turbolinks
 //= require popper
 //= require toastr.min
+//= require tinymce
+//= require tinymce-jquery
 //= require_tree .
 
 

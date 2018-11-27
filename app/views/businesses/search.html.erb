@@ -3,7 +3,7 @@
   <form>
     <nav class="navbar navbar-expand-md navbar-light bg-dark">
       <a class="text-light navbar-brand" href="/business/search"><%= image_tag('logo.png', size: '45x42', alt: 'We Connect!') %>
-        Search for Businesses
+        Search Businesses
       </a>
       <button type="button" class="navbar-toggler">
         <span class="navbar-toggler-icon"></span>
@@ -11,24 +11,29 @@
       <div class="collapse navbar-collapse">
         <ul class="ml-auto navbar-nav">
           <li class="nav-item-name-properties nav-item">
-            <input name="businessName" placeholder="Enter Business Name" class="business-name-input" type="text" id="business_name_search">
+            <input name="businessName" placeholder="Start typing Business name.." class="business-name-input" type="text" id="business_name_search">
           </li>
           <li class="nav-item-name-properties nav-item">
             <label class="business-search-label">Filter By:</label>
           </li>
           <li class="nav-item-name-properties nav-item">
-            <% categories_array = Category.all.map { |category| [category.name, category.id] } %>
-            <%= select_tag "Category", options_for_select(categories_array), class: "form-control category-input" %>
+            <select class="form-control category-input">
+              <option selected="true" disabled >Select a category..</option>
+              <% Category.all.map do |category| %>
+              <option value="<%= category.id %>"><%= category.name %></option>
+              <% end %>
+            </select>
+            <%# categories_array = Category.all.map { |category| [category.name, category.id] } %>
+            <%#= select_tag "Category", options_for_select(categories_array), class: "form-control category-input" %>
           </li>
           <li class="nav-item-name-properties nav-item">
-          <select name="location" id="exampleSelect" class="form-control" style="margin-top: 8px; margin-left: 10px;">
-            <option style="color: blue;">Location</option>
-            <option value="wakiso">Wakiso</option>
-            <option value="kabale">Kabale</option>
-            <option value="mbarara">Mbarara</option>
-            <option value="kampala">Kampala</option>
-            <option value="rukungiri">Rukungiri</option>
-          </select>
+            <select class="form-control location-input">
+              <option selected disabled>Select location ..</option>
+              <% @locations.each do |location| %>
+                <option value="<%= location %>"><%= location %></option>
+              <% end %>
+
+            </select>
           </li>
           <li class="nav-item" style="margin-left: 20px; margin-top: 8px;">
             <button class="btn btn-info">Search</button>
@@ -37,4 +42,8 @@
       </div>
     </nav>
   </form>
+  <div class="search-results">
+    <h4 id="total-results" class="font-italic text-light"></h4>
+    <span id="business-links"></span>
+  </div>
 </div>
