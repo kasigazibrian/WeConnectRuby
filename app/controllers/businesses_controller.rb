@@ -23,6 +23,7 @@ class BusinessesController < ApplicationController
     @business = get_business(id)
     if @business.update(business_params)
       flash[:notice] = 'Business updated successfully'
+      redirect_to businesses_path
     else
       flash[:error] = 'Update failed please try again'
     end
@@ -43,7 +44,7 @@ class BusinessesController < ApplicationController
 
   def show
     @business = get_business(params[:id])
-    @reviews = @business.reviews
+    @reviews = @business.reviews.order(created_at: :desc)
     flash[:error] = 'Business not found' unless @business
     redirect_to businesses_path unless @business
   end

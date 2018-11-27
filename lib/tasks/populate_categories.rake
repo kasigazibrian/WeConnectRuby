@@ -5,7 +5,7 @@ namespace :populate_categories do
   task populate_sample_categories: :environment do
     categories = [
       'Education', 'Automobiles',
-      'Real Estate', 'Education',
+      'Real Estate',
       'Health and Medicine',
       'Computer and Electronics',
       'Food retail and service',

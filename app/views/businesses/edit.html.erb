@@ -3,7 +3,7 @@
     <h3 class="business-heading">Business Registration Form</h3>
     <%= render 'layouts/messages' %>
     <%= flash_toastr %>
-    <%= form_for( :business, url: businesses_path ) do |f| %>
+    <%= form_for( :business, url: business_path(@business), method: :put ) do |f| %>
       <div class="form-group">
         <%= f.label :business_name, "Business Name" %><br>
         <%= f.text_field :business_name, :class => "form-control business-inputs" %>
@@ -30,7 +30,7 @@
         <%= f.text_area :business_description , {class: "form-control business-inputs"} %>
       </div>
       <div class="form-group">
-        <%= f.submit({:class => "form-control business-inputs btn btn-info"})  %>
+        <%= f.submit("Update Business",{:class => "form-control business-inputs btn btn-info"})  %>
       </div>
     <% end %>
   </div>

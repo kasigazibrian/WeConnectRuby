@@ -60,6 +60,7 @@ $(document).on 'turbolinks:load', ->
   $(".confirmDeleteBusiness").click (event) ->
     event.preventDefault()
     businessId = $(event.currentTarget).attr('id')
+    console.log(businessId)
     deleteBusiness(businessId)
     .then (data) ->
       console.log(data)
@@ -69,7 +70,7 @@ $(document).on 'turbolinks:load', ->
 
   deleteBusiness = (businessId) ->
     return $.ajax
-      url: "/businesses/1"
+      url: "/businesses/#{businessId}"
       type: 'DELETE'
       done: (response) ->
         return response
