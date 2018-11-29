@@ -20,11 +20,10 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <% if user_signed_in? %>
-<!--          <a class="dropdown-item" href="/users/sign_out"> Logout</a>-->
             <div class="dropdown-item logout"><i class="fas fa-sign-out-alt"></i>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "logout"%>
             </div>
-          <a class="dropdown-item" href="#"><i class="fas fa-user-md"></i> User Profile</a>
+          <a class="dropdown-item" href="/users/<%= current_user.id %>/profile"><i class="fas fa-user-md"></i> User Profile</a>
             <div class="dropdown-item logout"><i class="fas fa-business-time"></i>
               <%= link_to "Register Business", new_business_path, class: "logout"%>
             </div>

@@ -1,0 +1,66 @@
+<div class="container"><br>
+  <div class="row">
+    <div class="col-6 ">
+      <%= render 'layouts/messages'  %>
+      <%= flash_toastr %>
+      <h1> User Profile </h1>
+      <%= form_tag("/users/#{current_user.id}/profile/upload_photo", method: :put, multipart: true) do %>
+        <div class="row">
+          <div class="col-6">
+            <% if current_user.avatar.attached?%>
+              <%= image_tag(current_user.avatar, width: 192, height: 192, class: "avatar img-circle img-thumbnail") %>
+            <% else %>
+              <%= image_tag 'profile_avatar.png', class: "avatar img-circle img-thumbnail", "data-toggle" => "tooltip",
+                            "data-placement" => "top", title: "Tooltip on top"  %>
+            <% end %>
+          </div>
+          <div class="col-6">
+            <label>Change profile image</label>
+            <%= file_field_tag 'avatar', accept: 'image/png,image/gif,image/jpeg', class: "btn btn-info btn-sm upload-image-button"%>
+            <%= button_tag type: "submit", class: "btn btn-info", id: "upload-image-btn" do %>
+              <i class="fas fa-upload"></i>
+              <% end %>
+          </div>
+        </div>
+      <% end %><br>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>First Name: </th>
+          <td><%= current_user.first_name.capitalize %></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row">Last Name: </th>
+          <td><%= current_user.last_name.capitalize %></td>
+        </tr>
+        <tr>
+          <th scope="row">Username: </th>
+          <td><%= current_user.username %></td>
+        </tr>
+        <tr>
+          <th scope="row">Email: </th>
+          <td><%= current_user.email %></td>
+        </tr>
+        <tr>
+          <th scope="row">Gender: </th>
+          <td><%= current_user.gender %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-6 bg-info">
+      <div class="profile-buttons">
+        <%#= link_to "Change Password", edit_user_password_path, class: "btn btn-lg btn-secondary btn-block " %>
+        <%= link_to "Register Business", new_business_path, class:  "btn btn-lg btn-secondary btn-block" %>
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <h1 id="registered_businesses">Your Registered Businesses</h1>
+  <hr>
+  <div class="row">
+    <%= render 'businesses/business_cards' %>
+  </div>
+</div>

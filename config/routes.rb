@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :businesses do
     resources :reviews
   end
-
+  get 'users/:user_id/profile', to: 'home#get_user_profile'
+  put 'users/:user_id/profile/upload_photo', to: 'home#upload_photo'
   get 'business/search', to: 'businesses#search'
   get 'business/search_results', to: 'businesses#search_results'
 

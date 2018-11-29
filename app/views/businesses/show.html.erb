@@ -50,7 +50,6 @@
     <div class="container">
       <div class="content-right">
         <%# unless business_owner(current_user.id, @business.user_id) %>
-<!--        <form method="post" id="add-review">-->
         <%= form_for( :review, url: business_reviews_path(@business.id) ) do |f| %>
           <div class="form-group">
             <h3>Add Business Review:</h3>
@@ -64,7 +63,6 @@
               <%= f.submit("Add Review",{:class => "form-control business-inputs btn btn-info"})  %>
             </div>
           </div>
-<!--        </form>-->
           <% end %>
           <%# end %>
       </div>

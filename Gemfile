@@ -45,18 +45,20 @@ gem 'tinymce-rails', '~> 4.3'
 gem 'searchkick'
 
 # Add bootstrap for styling
+gem 'activestorage-cloudinary-service'
 gem 'bootstrap'
 gem 'jquery-rails'
-gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
-gem 'sweet-alert2-rails'
 gem 'toastrjs-rails'
 gem 'webpacker', '~> 3.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'cloudinary', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+  gem 'database_cleaner'
   gem 'pry'
   gem 'rspec-rails', '~> 3.8'
 end
@@ -74,6 +76,10 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '4.0.0.rc1'
+  gem 'rails-controller-testing' # If you are using Rails 5.x
+  gem 'factory_bot_rails'
+  gem 'simplecov', require: false
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
