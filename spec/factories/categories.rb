@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
-  factory :category, class: 'Categories' do
-    name Faker::Name.first_name
+  factory :category do
+    sequence(:name) { |n| "#{Faker::Name.first_name}#{n}" }
   end
 end

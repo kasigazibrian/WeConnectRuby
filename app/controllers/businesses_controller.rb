@@ -3,7 +3,8 @@
 # Business controller
 class BusinessesController < ApplicationController
   include BusinessesControllerConcern
-  before_action :authenticate_user!, only: %i[create new destroy show]
+  before_action :authenticate_user!, only: %i[create new destroy
+                                              show edit update]
   def index
     @businesses = Business.all
   end
@@ -21,11 +22,15 @@ class BusinessesController < ApplicationController
   def update
     id = params[:id]
     @business = get_business(id)
-    if @business.update(business_params)
-      flash[:notice] = 'Business updated successfully'
-      redirect_to businesses_path
+    if @business.user_id == current_user.id
+      if @business.update(business_params)
+        flash[:notice] = 'Business updated successfully'
+        redirect_to businesses_path
+      else
+        flash[:error] = 'Update failed please try again'
+      end
     else
-      flash[:error] = 'Update failed please try again'
+      flash[:error] = 'You do not have authorization to perform this action'
     end
   end
 
@@ -44,7 +49,7 @@ class BusinessesController < ApplicationController
 
   def show
     @business = get_business(params[:id])
-    @reviews = @business.reviews.order(created_at: :desc)
+    @reviews = @business.reviews.order(created_at: :desc) if @business
     flash[:error] = 'Business not found' unless @business
     redirect_to businesses_path unless @business
   end
@@ -63,9 +68,14 @@ class BusinessesController < ApplicationController
 
   def destroy
     business = Business.find_by(id: params[:id])
-    if business.destroy
-      flash[:notice] = 'Business deleted successfully'
-      redirect_to businesses_path
+    if business
+      if business.user_id == current_user.id
+        business.destroy
+        flash[:notice] = 'Business deleted successfully'
+        redirect_to businesses_path
+      else
+        flash[:error] = 'You do not have authorization to perform this action'
+      end
     else
       flash[:error] = 'Business  not found'
     end
